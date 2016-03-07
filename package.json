@@ -1,0 +1,24 @@
+{
+  "name": "boxfish-jsdocs",
+  "version": "0.1.0",
+  "description": "Generate JavaScript documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bxfsh/boxfish-jsdocs.git"
+  },
+  "author": "Mark Murray <mark@boxfish.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bxfsh/boxfish-jsdocs/issues"
+  },
+  "homepage": "https://github.com/bxfsh/boxfish-jsdocs#readme",
+  "devDependencies": {
+    "comment-parser": "^0.4.0",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.6.1"
+  }
+}
