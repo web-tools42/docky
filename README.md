@@ -1,1 +1,2 @@
-# Boxfish JSDocs
+# Docky
+Auto-Generate JavaScript documenation.
