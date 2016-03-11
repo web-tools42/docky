@@ -1,24 +1,33 @@
 {
-  "name": "boxfish-jsdocs",
+  "name": "docky",
   "version": "0.1.0",
   "description": "Generate JavaScript documentation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "docky": "./bin/docky.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bxfsh/boxfish-jsdocs.git"
+    "url": "git+https://github.com/bxfsh/docky.git"
   },
   "author": "Mark Murray <mark@boxfish.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bxfsh/boxfish-jsdocs/issues"
+    "url": "https://github.com/bxfsh/docky/issues"
   },
-  "homepage": "https://github.com/bxfsh/boxfish-jsdocs#readme",
-  "devDependencies": {
+  "homepage": "https://github.com/bxfsh/docky#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
     "comment-parser": "^0.4.0",
     "handlebars": "^4.0.5",
-    "lodash": "^4.6.1"
+    "jade": "^1.11.0",
+    "jstransformer-markdown": "^1.1.0",
+    "lodash": "^4.6.1",
+    "markdown": "^0.5.0",
+    "marked": "^0.3.5"
   }
 }

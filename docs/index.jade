@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title Boxfish Helpers
+    meta(name="description", content="Boxfish Helpers")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,300', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", href="css/normalize.css")
+    link(rel="stylesheet", href="css/main.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow-night.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js")
+
+  body
+    main
+      aside
+        header #{package.name} - 
+          span= package.version
+          if package.homepage
+            a(href="#{package.homepage}")
+              img(src="images/github.svg")
+        
+        ul.helpers-list
+          each helper in helpers
+            li
+              a(href="##{helper.name}")= helper.name
+      section#helpers
+        if readme
+          div(id="readme")!= markdown(readme)
+        div.helpers
+          each helper in helpers
+            article(id="#{helper.name}")
+              h2= helper.name
+              p= helper.description
+              pre
+                code.javascript function #{helper.name}(#{helper.params[0].name}) { ... }
+              if helper.params
+                h4 Params:
+                ul.params
+                  each param in helper.params
+                    if(param.name == 'options')
+                      li
+                        code param.name span - (param.type) description
+              if example
+                h4 Usage:
+                pre
+                  code(class="javascript")= example
+    script(type="text/javascript").
+      hljs.initHighlightingOnLoad();
+    script(src="https://code.jquery.com/jquery-1.12.1.min.js")
+    script(src="js/waypoints.min.js")
+    script(src="js/main.js")

@@ -33,6 +33,12 @@ parse.file('js/helpers.js', function (err, helpers) {
   });
 });
 
+/**
+ * Get each method name
+ * @method getMethodNames
+ * @param  {Object} helpers
+ * @return {Object}
+ */
 function getMethodNames(helpers) {
   _.each(helpers, function (helper) {
     _.each(helper.tags, function (tag) {
