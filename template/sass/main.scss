@@ -1,5 +1,6 @@
 $sidebar-width: 260px;
 $header-height: 60px;
+$primary: #FF6E6E;
 
 //=======================================//
 
@@ -12,7 +13,7 @@ html, body {
 a,
 a:visited,
 a:focus {
-  color: inherit;
+  // color: inherit;
   text-decoration: inherit;
 }
 
@@ -42,7 +43,7 @@ input[type="search"] {
 
 header {
   width: 100%;
-  background: #FF6E6E;
+  background: $primary;
   color: white;
   padding: 1em;
 
@@ -72,6 +73,13 @@ main {
     width: $sidebar-width;
     box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.05);
 
+    .group-name {
+      margin-right: 1.5em;
+      margin-bottom: 0.5em;
+      color: #252525;
+      text-transform: capitalize;
+    }
+
     ul {
       height: calc(100vh - #{$header-height});
       overflow-y: scroll;
@@ -83,7 +91,7 @@ main {
 
       li {
 
-        &:first-child {
+        &:first-of-type a {
           border-top: 1px solid #eee;
         }
 
@@ -92,14 +100,14 @@ main {
           font-size: 0.9em;
           padding: 0.75em 2em;
           border-bottom: 1px solid #eee;
-          color: #252525;
+          color: #656565;
 
           &:hover {
             background: white;
           }
 
           &.active {
-            color: #FF6E6E;
+            color: $primary;
           }
         }
       }
@@ -138,6 +146,12 @@ main {
   }
 }
 
+.badge {
+  padding: 4px 8px;
+  font-size: 11px;
+  background: #aaa;
+  color: white;
+}
 
 .container {
   max-width: 600px;

@@ -1,0 +1,63 @@
+- function capitalize(string) { return string.charAt(0).toUpperCase() + string.slice(1); }
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title Docky
+    meta(name="description", content="Docky")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,300', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", href="css/normalize.css")
+    link(rel="stylesheet", href="css/main.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow-night.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js")
+
+  body
+    main
+      //- Sidebar
+      aside
+        //- Sidebar header
+        header #{package.name} - 
+          span= package.version
+          if package.homepage
+            a(href="#{package.homepage}")
+              img(src="images/github.svg")
+              
+        ul.grouped
+          //- Groups
+          each list, group in methods.grouped
+            h4(class="group-name")= group
+            each method in list
+              li
+                a(href="##{method.name}")= method.name
+                  
+          if methods.ungrouped.length
+            h4(class="group-name") Ungrouped
+            each method in methods.ungrouped
+              li
+                a(href="##{method.name}")= method.name
+              
+      section#methods
+        if readme
+          div(class="container", id="readme")!= markdown(readme)
+          
+        div.grouped
+          each list, group in methods.grouped
+            h1= capitalize(group)
+            each method in list
+              include method
+        
+        if methods.ungrouped.length
+          div.ungrouped
+            h1 Ungrouped
+            each method in methods.ungrouped
+              include method
+
+    script(type="text/javascript").
+      hljs.initHighlightingOnLoad();
+    script(src="https://code.jquery.com/jquery-1.12.1.min.js")
+    script(src="js/waypoints.min.js")
+    script(src="js/main.js")

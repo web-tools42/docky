@@ -2,7 +2,7 @@
 
 var program = require('commander');
 var package = require('../package.json');
-var Docky = require('../docky.js');
+var Docky = require('../index.js');
 
 require('colors');
 
