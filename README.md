@@ -4,7 +4,7 @@ Auto-Generate JavaScript documenation.
 ## Install
 `npm install -g docky`
 
-## Usage
+## CLI Usage
 `docky index.js`
 
 ## Programmatic Usage
@@ -18,13 +18,14 @@ docky('filename.js', {
 
 ## Options
 ```shell
-Usage: docky <file> [options]
 
-Options:
+  Usage: docky <file> [options]
 
-  -h, --help             output usage information
-  -v, --version          output the version number
-  -r, --readme <readme>  Specify a README file to intro the docs
+  Options:
+
+    -h, --help               output usage information
+    -v, --version            output the version number
+    -r, --readme <readme>    Specify a README file
 ```
 
 ## Scripts

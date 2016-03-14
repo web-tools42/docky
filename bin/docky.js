@@ -10,7 +10,7 @@ program
   .version(package.version, '-v, --version')
   .usage('<file> [options]')
   .arguments('<file>')
-  .option('-r, --readme <readme>', 'Specify a README file to accompany the js file')
+  .option('-r, --readme <readme>', 'Specify a README file')
   .action(function (file, options) {
     Docky(file, options);
   })

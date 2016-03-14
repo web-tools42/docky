@@ -22,8 +22,9 @@ html
       aside
         //- Sidebar header
         header= capitalize(package.name)  
-          span 
-            small (#{package.version})
+          if package.version
+            span 
+              small (#{package.version})
           if package.homepage
             a(href="#{package.homepage}")
               img(src="images/github.svg")
