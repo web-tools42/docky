@@ -1,11 +1,15 @@
 # Docky
 Auto-Generate JavaScript documenation.
 
-## Install
+## CLI Usage
+
+Install docky globally:
+
 `npm install -g docky`
 
-## CLI Usage
-`docky index.js`
+Run docky:
+
+`docky <filename>.js`
 
 ## Programmatic Usage
 
