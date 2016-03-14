@@ -8,6 +8,9 @@ Auto-Generate JavaScript documenation.
 `docky index.js`
 
 ## Programmatic Usage
+
+`npm install --save-dev docky`
+
 ```javascript
 const docky = require('docky');
 
