@@ -6,6 +6,7 @@ var _ = require('lodash');
  * @private
  * @param  {Object} methods
  * @return {Boolean} Returns a boolean
+ * @example hasTag(methods, 'deprecated', callback)
  */
 function hasTag(methods, tag, cb) {
   return methods.map(method => {

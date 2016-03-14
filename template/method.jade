@@ -16,8 +16,9 @@ article(id="#{method.name}")
   if method.example
     h4 Usage:
     pre
-      code(class="javascript")= example
+      code.javascript #{method.example}
       
   if method.returns
     h4 Returns:
-    code method.returns
+    pre
+      code.javascript #{method.returns}

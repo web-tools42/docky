@@ -27,32 +27,6 @@
         </ul>
       </aside>
       <section id="methods">
-        <div id="readme"><h1 id="docky">Docky</h1>
-<p>Auto-Generate JavaScript documenation.</p>
-<h2 id="install">Install</h2>
-<p><code>npm install -g docky</code></p>
-<h2 id="usage">Usage</h2>
-<p><code>docky index.js</code></p>
-<h2 id="programmatic-usage">Programmatic Usage</h2>
-<pre><code class="lang-javascript">const docky = require(&#39;docky&#39;);
-
-docky(&#39;filename.js&#39;, {
-  readme: &#39;../README.md&#39;
-});
-</code></pre>
-<h2 id="options">Options</h2>
-<pre><code class="lang-shell">Usage: docky &lt;file&gt; [options]
-
-Options:
-
-  -h, --help             output usage information
-  -v, --version          output the version number
-  -r, --readme &lt;readme&gt;  Specify a README file to intro the docs
-</code></pre>
-<h2 id="scripts">Scripts</h2>
-<p>Compile the template SASS:
-<code>npm run sass</code></p>
-</div>
         <div class="grouped">
           <h1>Parser</h1>
           <article id="getMethodNames">
@@ -102,6 +76,8 @@ Options:
             <ul class="params">
               <li><code>methods<span> - {Object} </span></code></li>
             </ul>
+            <h4>Usage:</h4>
+            <pre><code class="javascript">hasTag(methods, 'deprecated', callback)</code></pre>
           </article>
         </div>
       </section>
