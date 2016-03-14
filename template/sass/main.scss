@@ -152,7 +152,7 @@ code.lang-shell {
 }
 
 code {
-  background: #eee;
+  background: #f4f4f7;
   padding: 6px;
 }
 
@@ -164,6 +164,10 @@ code {
   margin-left: 1em;
   vertical-align: middle;
   color: white;
+}
+
+div#readme {
+  padding: 1em 12%;
 }
 
 .container {

@@ -103,7 +103,7 @@ code.lang-shell {
   padding: 0.6em; }
 
 code {
-  background: #eee;
+  background: #f4f4f7;
   padding: 6px; }
 
 .badge {
@@ -114,6 +114,9 @@ code {
   margin-left: 1em;
   vertical-align: middle;
   color: white; }
+
+div#readme {
+  padding: 1em 12%; }
 
 .container {
   max-width: 600px;

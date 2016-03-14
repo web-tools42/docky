@@ -9,14 +9,13 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,300" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow-night.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/hybrid.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
   </head>
   <body>
     <main>
       <aside>
-        <header>docky - <span>0.1.0</span><a href="https://github.com/bxfsh/docky#readme"><img src="images/github.svg"></a>
-        </header>
+        <header>Docky<span> <small>(0.1.1)</small></span><a href="https://github.com/bxfsh/docky#readme"><img src="images/github.svg"></a></header>
         <ul class="grouped">
           <h4 class="group-name">parser</h4>
           <li><a href="#getMethodNames">getMethodNames</a></li>
@@ -28,8 +27,19 @@
         </ul>
       </aside>
       <section id="methods">
-        <div id="readme" class="container"><h1 id="docky">Docky</h1>
+        <div id="readme"><h1 id="docky">Docky</h1>
 <p>Auto-Generate JavaScript documenation.</p>
+<h2 id="install">Install</h2>
+<p><code>npm install -g docky</code></p>
+<h2 id="usage">Usage</h2>
+<p><code>docky index.js</code></p>
+<h2 id="programmatic-usage">Programmatic Usage</h2>
+<pre><code class="lang-javascript">const docky = require(&#39;docky&#39;);
+
+docky(&#39;filename.js&#39;, {
+  readme: &#39;../README.md&#39;
+});
+</code></pre>
 <h2 id="options">Options</h2>
 <pre><code class="lang-shell">Usage: docky &lt;file&gt; [options]
 

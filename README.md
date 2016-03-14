@@ -1,6 +1,21 @@
 # Docky
 Auto-Generate JavaScript documenation.
 
+## Install
+`npm install -g docky`
+
+## Usage
+`docky index.js`
+
+## Programmatic Usage
+```javascript
+const docky = require('docky');
+
+docky('filename.js', {
+  readme: '../README.md'
+});
+```
+
 ## Options
 ```shell
 Usage: docky <file> [options]

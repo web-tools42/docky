@@ -12,7 +12,8 @@ html
     link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,300', rel='stylesheet', type='text/css')
     link(rel="stylesheet", href="css/normalize.css")
     link(rel="stylesheet", href="css/main.css")
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow-night.min.css")
+    //- link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow-night.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/hybrid.min.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js")
 
   body
@@ -20,8 +21,9 @@ html
       //- Sidebar
       aside
         //- Sidebar header
-        header #{package.name} - 
-          span= package.version
+        header= capitalize(package.name)  
+          span 
+            small (#{package.version})
           if package.homepage
             a(href="#{package.homepage}")
               img(src="images/github.svg")
@@ -42,7 +44,7 @@ html
               
       section#methods
         if readme
-          div(class="container", id="readme")!= markdown(readme)
+          div(id="readme")!= markdown(readme)
           
         div.grouped
           each list, group in methods.grouped
