@@ -9,7 +9,7 @@ Options:
 
   -h, --help             output usage information
   -v, --version          output the version number
-  -r, --readme <readme>  Specify a README file to accompany the js file
+  -r, --readme <readme>  Specify a README file to intro the docs
 ```
 
 ## Scripts

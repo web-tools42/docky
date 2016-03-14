@@ -146,10 +146,23 @@ main {
   }
 }
 
+code.lang-shell {
+  display: block;
+  padding: 0.6em;
+}
+
+code {
+  background: #eee;
+  padding: 6px;
+}
+
 .badge {
   padding: 4px 8px;
   font-size: 11px;
-  background: #aaa;
+  background: #ccc;
+  border-radius: 20px;
+  margin-left: 1em;
+  vertical-align: middle;
   color: white;
 }
 

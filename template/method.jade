@@ -1,7 +1,7 @@
 - var method_params = _.map(method.params, 'name').join(', ');
 article(id="#{method.name}")
   h2= method.name
-    if deprecated
+    if method.deprecated
       span.badge deprecated
   p= method.description
   pre

@@ -28,10 +28,25 @@
         </ul>
       </aside>
       <section id="methods">
+        <div id="readme" class="container"><h1 id="docky">Docky</h1>
+<p>Auto-Generate JavaScript documenation.</p>
+<h2 id="options">Options</h2>
+<pre><code class="lang-shell">Usage: docky &lt;file&gt; [options]
+
+Options:
+
+  -h, --help             output usage information
+  -v, --version          output the version number
+  -r, --readme &lt;readme&gt;  Specify a README file to intro the docs
+</code></pre>
+<h2 id="scripts">Scripts</h2>
+<p>Compile the template SASS:
+<code>npm run sass</code></p>
+</div>
         <div class="grouped">
           <h1>Parser</h1>
           <article id="getMethodNames">
-            <h2>getMethodNames</h2>
+            <h2>getMethodNames<span class="badge">deprecated</span></h2>
             <p>Adds the name to each method</p>
             <pre><code class="javascript">function getMethodNames(methods) { ... }</code></pre>
             <h4>Params:</h4>
