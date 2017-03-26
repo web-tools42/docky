@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/markmur/docky",
   "author": "Mark Murray <mark@boxfish.com>",
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "dependencies": {
     "chokidar": "^1.6.1",
     "colors": "^1.1.2",
