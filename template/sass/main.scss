@@ -17,6 +17,12 @@ a:focus {
   text-decoration: inherit;
 }
 
+[align="center"] {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
 code, kbd, pre, samp {
   max-width: 800px;
   font-size: 14px;
@@ -165,7 +171,6 @@ main {
     }
 
     h1 {
-      text-align: left;
       color: black;
     }
 

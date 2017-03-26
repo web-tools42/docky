@@ -1,4 +1,4 @@
-<img align="center">![Docky](https://github.com/markmur/docky/blob/master/docs/images/docky.png?raw=true)
+<img align="center" src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" title="Docky" />
 
 # <h1 align="center">Docky</h1>
 

@@ -8,6 +8,11 @@ a:visited,
 a:focus {
   text-decoration: inherit; }
 
+[align="center"] {
+  display: block;
+  text-align: center;
+  margin: auto; }
+
 code, kbd, pre, samp {
   max-width: 800px;
   font-size: 14px; }
@@ -117,7 +122,6 @@ main {
       border-top: 1px solid #eee;
       border-bottom: 1px solid #eee; }
     main section h1 {
-      text-align: left;
       color: black; }
     main section article {
       padding: 4em 23%;
