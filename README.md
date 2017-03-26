@@ -1,6 +1,6 @@
 # <p align="center">Docky</p>
 
-<p align="center">Auto-Generate JavaScript documenation.</p>
+<p align="center">Generate Documentation for React Components.</p>
 
 
 
