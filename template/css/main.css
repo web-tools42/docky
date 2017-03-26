@@ -8,6 +8,10 @@ a:visited,
 a:focus {
   text-decoration: inherit; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 [align="center"] {
   display: block;
   text-align: center;
@@ -84,7 +88,7 @@ main {
     position: fixed;
     top: 0;
     width: 260px;
-    box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.05); }
+    box-shadow: 2px 0 16px 0 rgba(0, 0, 0, 0.05); }
     main aside ul {
       height: calc(100vh - 60px);
       overflow-y: scroll;
@@ -92,22 +96,35 @@ main {
       padding: 0;
       padding-bottom: 5em;
       margin: 0; }
-      main aside ul li.component-name {
-        color: #252525;
+      main aside ul li.heading,
+      main aside ul li.subheading {
         text-transform: capitalize; }
-        main aside ul li.component-name:first-of-type a {
-          border-top: 1px solid #eee; }
-        main aside ul li.component-name a {
+        main aside ul li.heading.noclick a,
+        main aside ul li.subheading.noclick a {
+          background: transparent !important; }
+        main aside ul li.heading a,
+        main aside ul li.subheading a {
           display: block;
           font-size: 0.9em;
           padding: 0.75em 1.5em;
           border-bottom: 1px solid #eee;
-          color: #656565;
+          color: #858585;
           transition: background 150ms ease; }
-          main aside ul li.component-name a:hover {
+          main aside ul li.heading a:hover,
+          main aside ul li.subheading a:hover {
             background: #fafafb; }
-          main aside ul li.component-name a.active {
+          main aside ul li.heading a.active,
+          main aside ul li.subheading a.active {
             color: #2E8CFF; }
+          main aside ul li.heading a:first-of-type a,
+          main aside ul li.subheading a:first-of-type a {
+            border-top: 1px solid #eee; }
+      main aside ul li.heading a {
+        color: #0c0c0c;
+        font-size: 14px;
+        padding: 0.75em 1.5em; }
+      main aside ul li.subheading a {
+        padding: 0.5em 1.5em 0.5em 2.5em; }
   main section {
     max-width: calc(100% - 260px);
     flex: 1;

@@ -21,15 +21,20 @@
           </div>
         </header>
         <ul class="grouped">
-          <li class="component-name"><a href="#readme">Introduction</a></li>
-          <li class="component-name"><a href="#Loader">Loader</a></li>
-          <li class="component-name"><a href="#Loader2">Loader2</a></li>
-          <li class="component-name"><a href="#Loader3">Loader3</a></li>
+          <li class="heading"><a href="#introduction">Introduction</a></li>
+          <li class="heading"><a href="#cli-usage">CLI Usage</a></li>
+          <li class="heading"><a href="#contributing">Contributing</a></li>
+          <li class="heading noclick"><a>Components</a></li>
+          <li class="subheading"><a href="#Loader">Loader</a></li>
+          <li class="subheading"><a href="#Loader2">Loader2</a></li>
+          <li class="subheading"><a href="#Loader3">Loader3</a></li>
         </ul>
       </aside>
       <section id="methods">
-        <div id="readme"><p align="center">
-  <img src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" alt="Docky" />
+        <div id="readme">
+          <h2 id="introduction">Introduction</h2>
+          <div><p align="center">
+  <img src="https://github.com/markmur/docky/raw/master/docs/images/docky.png?raw=true" width="150" alt="Docky" />
 </p>
 
 <p><h1 align="center">
@@ -38,15 +43,15 @@
 <p align="center">
   Generate Documentation for React Components.
 </p>
-
-<h2 id="cli-usage">CLI Usage</h2>
-<p>Install docky globally:</p>
+</div>
+          <h2 id="cli-usage">CLI Usage</h2>
+          <div><p>Install docky globally:</p>
 <pre><code class="lang-shell">npm install -g docky
 </code></pre>
 <p>Run docky on a single file or entire folder:</p>
 <pre><code class="lang-shell">docky src/components/**/*.js
 </code></pre>
-<h2 id="options">Options</h2>
+<h3 id="options">Options</h3>
 <pre><code class="lang-shell">  Usage: docky &lt;files&gt; [options]
 
   Options:
@@ -55,8 +60,9 @@
     -v, --version            output the version number
     -w, --watch              run on file change
 </code></pre>
-<h2 id="contributing">Contributing</h2>
-<p>Docky uses Pug (formally known as Jade) and SASS for template generation. The files can be found under the <code>template</code> directory.</p>
+</div>
+          <h2 id="contributing">Contributing</h2>
+          <div><p>Docky uses Pug (formally known as Jade) and SASS for template generation. The files can be found under the <code>template</code> directory.</p>
 <p>There is a <code>components</code> directory which contains some example React components for testing. You can run docky over the local folder by running:</p>
 <pre><code class="lang-shell">npm run docs
 </code></pre>
@@ -70,6 +76,7 @@
 <pre><code class="lang-shell">npm run sass:watch
 </code></pre>
 </div>
+        </div>
         <div class="components">
           <div class="component" id="Loader">
             <header>
@@ -250,6 +257,14 @@
     </main>
     <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript">
+      $('a[href^=\\#]').click(function(event) {
+        $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+        }, 500);
+        event.preventDefault();
+      });
+    </script>
     <script src="js/waypoints.min.js"></script>
     <script src="js/main.js"></script>
   </body>

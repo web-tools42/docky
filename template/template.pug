@@ -35,17 +35,22 @@ html
                 img(src="images/github.svg")
 
         ul.grouped
-          li(class="component-name")
-            a(href="#readme") Introduction
-          //- components
+          each val, key in readmeParts
+            li.heading
+              a(href='#' + kebabCase(key))= key
+          li.heading.noclick
+            a Components
           each component in components
-            li(class="component-name")
+            li.subheading
               a(href='#' + component.name)= component.name
 
 
       section#methods
         if readme
-          div(id="readme")!= markdown(readme)
+          div#readme
+            each val, key in readmeParts
+              h2(id=kebabCase(key))= key
+              div!= markdown(val)
 
         div.components
           each component in components
@@ -75,5 +80,12 @@ html
     script(type="text/javascript").
       hljs.initHighlightingOnLoad();
     script(src="https://code.jquery.com/jquery-1.12.1.min.js")
+    script(type="text/javascript").
+      $('a[href^=\\#]').click(function(event) {
+        $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+        }, 500);
+        event.preventDefault();
+      });
     script(src="js/waypoints.min.js")
     script(src="js/main.js")

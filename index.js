@@ -122,6 +122,21 @@ const getComponentName = (filename) => (
   filename.replace(/^(.*)\/(\w+)(.jsx?)$/g, '$2')
 );
 
+const parseReadme = (readme) => {
+  const structure = {};
+  const parts = readme.split(/\n##\s(.+)\b/g);
+
+  structure['Introduction'] = parts.shift();
+
+  parts.forEach((part, i) => {
+    if (i % 2 === 0) structure[part] = parts[i + 1];
+  });
+
+  console.log(structure);
+
+  return structure;
+};
+
 const run = (files, options) => {
   let docs;
   let props;
@@ -151,11 +166,15 @@ const run = (files, options) => {
     components: _.sortBy(components, 'name'),
     pretty: true,
     markdown: require('marked'),
-    capitalize: _.capitalize
+    capitalize: _.capitalize,
+    kebabCase: _.kebabCase
   };
 
   if (!options.noreadme && fileExists('./README.md')) {
     data.readme = fs.readFileSync('./README.md', 'utf8');
+    data.readmeParts = parseReadme(data.readme);
+
+    console.log(Object.keys(data.readmeParts));
   }
 
   pug.renderFile(`${dockyPath}/template/template.pug`, data, (renderErr, html) => {

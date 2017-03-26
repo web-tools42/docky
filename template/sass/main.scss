@@ -17,6 +17,11 @@ a:focus {
   text-decoration: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 [align="center"] {
   display: block;
   text-align: center;
@@ -114,7 +119,7 @@ main {
     position: fixed;
     top: 0;
     width: $sidebar-width;
-    box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 0 16px 0 rgba(0, 0, 0, 0.05);
 
     ul {
       height: calc(100vh - #{$header-height});
@@ -124,12 +129,12 @@ main {
       padding-bottom: 5em;
       margin: 0;
 
-      li.component-name {
-        color: #252525;
+      li.heading,
+      li.subheading {
         text-transform: capitalize;
 
-        &:first-of-type a {
-          border-top: 1px solid #eee;
+        &.noclick a {
+          background: transparent!important;
         }
 
         a {
@@ -137,7 +142,7 @@ main {
           font-size: 0.9em;
           padding: 0.75em 1.5em;
           border-bottom: 1px solid #eee;
-          color: #656565;
+          color: #858585;
           transition: background 150ms ease;
 
           &:hover {
@@ -147,7 +152,21 @@ main {
           &.active {
             color: $primary;
           }
+
+          &:first-of-type a {
+            border-top: 1px solid #eee;
+          }
         }
+      }
+
+      li.heading a {
+        color: darken(#252525, 10%);
+        font-size: 14px;
+        padding: 0.75em 1.5em;
+      }
+
+      li.subheading a {
+        padding: 0.5em 1.5em 0.5em 2.5em;
       }
     }
   }

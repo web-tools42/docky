@@ -23,7 +23,7 @@ Run docky on a single file or entire folder:
 docky src/components/**/*.js
 ```
 
-## Options
+### Options
 
 ```shell
   Usage: docky <files> [options]
