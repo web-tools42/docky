@@ -3,6 +3,9 @@ html, body {
   font-size: 100%;
   line-height: 1.65; }
 
+body.noscroll {
+  overflow: hidden; }
+
 a,
 a:visited,
 a:focus {
@@ -88,9 +91,26 @@ main {
     position: fixed;
     top: 0;
     width: 260px;
+    height: 100vh;
     box-shadow: 2px 0 16px 0 rgba(0, 0, 0, 0.05); }
+    main aside footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding-top: 0.25em;
+      text-align: center;
+      font-size: 13px;
+      border-top: 1px solid #ddd;
+      background: rgba(0, 0, 0, 0.05);
+      z-index: 10; }
+      main aside footer a {
+        color: #2E8CFF;
+        border-bottom: 1px dotted;
+        font-weight: bold; }
     main aside ul {
-      height: calc(100vh - 60px);
+      height: calc(100vh - 136px);
       overflow-y: scroll;
       list-style: none;
       padding: 0;

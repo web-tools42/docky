@@ -29,6 +29,9 @@
           <li class="subheading"><a href="#Loader2">Loader2</a></li>
           <li class="subheading"><a href="#Loader3">Loader3</a></li>
         </ul>
+        <footer>
+          <p>Generated with<a href="https://github.com/markmur/docky"> Docky</a></p>
+        </footer>
       </aside>
       <section id="methods">
         <div id="readme">
@@ -255,6 +258,16 @@
         </div>
       </section>
     </main>
+    <script type="text/javascript">
+      var sidebar = document.querySelector('aside');
+      sidebar.addEventListener('mouseover', (e) => {
+        document.body.classList.add('noscroll');
+      });
+      
+      sidebar.addEventListener('mouseleave', (e) => {
+        document.body.classList.remove('noscroll');
+      });
+    </script>
     <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
     <script type="text/javascript">

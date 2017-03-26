@@ -10,6 +10,10 @@ html, body {
   line-height: 1.65;
 }
 
+body.noscroll {
+  overflow: hidden;
+}
+
 a,
 a:visited,
 a:focus {
@@ -119,10 +123,31 @@ main {
     position: fixed;
     top: 0;
     width: $sidebar-width;
+    height: 100vh;
     box-shadow: 2px 0 16px 0 rgba(0, 0, 0, 0.05);
 
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding-top: 0.25em;
+      text-align: center;
+      font-size: 13px;
+      border-top: 1px solid #ddd;
+      background: rgba(black, 0.05);
+      z-index: 10;
+
+      a {
+        color: $primary;
+        border-bottom: 1px dotted;
+        font-weight: bold;
+      }
+    }
+
     ul {
-      height: calc(100vh - #{$header-height});
+      height: calc(100vh - 136px);
       overflow-y: scroll;
       list-style: none;
       padding: 0;

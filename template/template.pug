@@ -44,6 +44,10 @@ html
             li.subheading
               a(href='#' + component.name)= component.name
 
+        footer
+          p Generated with
+            a(href="https://github.com/markmur/docky")  Docky
+
 
       section#methods
         if readme
@@ -77,6 +81,15 @@ html
                         td= prop.description
 
 
+    script(type="text/javascript").
+      var sidebar = document.querySelector('aside');
+      sidebar.addEventListener('mouseover', (e) => {
+        document.body.classList.add('noscroll');
+      });
+
+      sidebar.addEventListener('mouseleave', (e) => {
+        document.body.classList.remove('noscroll');
+      });
     script(type="text/javascript").
       hljs.initHighlightingOnLoad();
     script(src="https://code.jquery.com/jquery-1.12.1.min.js")
