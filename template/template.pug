@@ -75,7 +75,7 @@ html
                     each prop in component.props
                       tr
                         td
-                          strong= capitalize(prop.name)
+                          strong= prop.name
                         td= capitalize(prop.type)
                         td= prop.defaultValue
                         td= prop.description
