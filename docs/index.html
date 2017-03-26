@@ -22,17 +22,24 @@
         </header>
         <ul class="grouped">
           <li class="component-name"><a href="#readme">Introduction</a></li>
+          <li class="component-name"><a href="#GlobalLoader">GlobalLoader</a></li>
+          <li class="component-name"><a href="#Index">Index</a></li>
           <li class="component-name"><a href="#Loader">Loader</a></li>
-          <li class="component-name"><a href="#Loader2">Loader2</a></li>
-          <li class="component-name"><a href="#Loader3">Loader3</a></li>
+          <li class="component-name"><a href="#Logo">Logo</a></li>
+          <li class="component-name"><a href="#Menu">Menu</a></li>
+          <li class="component-name"><a href="#Portfolio">Portfolio</a></li>
+          <li class="component-name"><a href="#Posts">Posts</a></li>
+          <li class="component-name"><a href="#Project">Project</a></li>
+          <li class="component-name"><a href="#ProjectDetail">ProjectDetail</a></li>
+          <li class="component-name"><a href="#ProjectShowcase">ProjectShowcase</a></li>
+          <li class="component-name"><a href="#Projects">Projects</a></li>
         </ul>
       </aside>
       <section id="methods">
-        <div id="readme"><p><img align="center" src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" title="Docky" /></p>
+        <div id="readme"><p align="center"><img src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" title="Docky" /></p>
+
 <h1 id="-h1-align-center-docky-h1-"><h1 align="center">Docky</h1></h1>
 <p align="center">Generate Documentation for React Components.</p>
-
-
 
 <h2 id="cli-usage">CLI Usage</h2>
 <p>Install docky globally:</p>
@@ -66,6 +73,68 @@
 </code></pre>
 </div>
         <div class="components">
+          <div class="component" id="GlobalLoader">
+            <header>
+              <div class="container">
+                <h1>&lt;GlobalLoader /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Loading</strong></td>
+                    <td>Bool</td>
+                    <td>true</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Message</strong></td>
+                    <td>String</td>
+                    <td>'Loading...'</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component" id="Index">
+            <header>
+              <div class="container">
+                <h1>&lt;Index /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Projects</strong></td>
+                    <td>Object</td>
+                    <td>{}</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
           <div class="component" id="Loader">
             <header>
               <div class="container">
@@ -73,7 +142,29 @@
               </div>
             </header>
             <div class="container">
-              <p>Higher order component that displays a loader until your content is finished loading.</p>
+              <p></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component" id="Logo">
+            <header>
+              <div class="container">
+                <h1>&lt;Logo /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
               <table>
                 <thead>
                   <tr>
@@ -85,53 +176,23 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Children</strong></td>
-                    <td>Any</td>
-                    <td></td>
-                    <td>The content you wish to load</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Height</strong></td>
-                    <td>Number</td>
-                    <td></td>
-                    <td>Optional loader container height parameter</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Loading</strong></td>
-                    <td>Bool</td>
-                    <td>false</td>
-                    <td>Boolean to determine whether the loader should be shown</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Style</strong></td>
-                    <td>Object</td>
-                    <td></td>
-                    <td>Optional style options for the loader container</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Text</strong></td>
+                    <td><strong>Size</strong></td>
                     <td>String</td>
+                    <td>'2rem'</td>
                     <td></td>
-                    <td>Optional loading text to be displayed below the loader</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Width</strong></td>
-                    <td>Number</td>
-                    <td></td>
-                    <td>Optional loader container width parameter</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="component" id="Loader2">
+          <div class="component" id="Menu">
             <header>
               <div class="container">
-                <h1>&lt;Loader2 /&gt;</h1>
+                <h1>&lt;Menu /&gt;</h1>
               </div>
             </header>
             <div class="container">
-              <p>General component description.</p>
+              <p></p>
               <table>
                 <thead>
                   <tr>
@@ -143,53 +204,85 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Children</strong></td>
-                    <td>Any</td>
-                    <td></td>
-                    <td>The content you wish to load</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Height</strong></td>
-                    <td>Number</td>
-                    <td></td>
-                    <td>Optional loader container height parameter</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Loading</strong></td>
-                    <td>Bool</td>
-                    <td>false</td>
-                    <td>Boolean to determine whether the loader should be shown</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Style</strong></td>
-                    <td>Object</td>
-                    <td></td>
-                    <td>Optional style options for the loader container</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Text</strong></td>
+                    <td><strong>Active</strong></td>
                     <td>String</td>
                     <td></td>
-                    <td>Optional loading text to be displayed below the loader</td>
+                    <td></td>
                   </tr>
                   <tr>
-                    <td><strong>Width</strong></td>
-                    <td>Number</td>
+                    <td><strong>Onclick</strong></td>
+                    <td>Func</td>
+                    <td>() =&gt; {}</td>
                     <td></td>
-                    <td>Optional loader container width parameter</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Onclose</strong></td>
+                    <td>Func</td>
+                    <td>() =&gt; {}</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Onopen</strong></td>
+                    <td>Func</td>
+                    <td>() =&gt; {}</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="component" id="Loader3">
+          <div class="component" id="Portfolio">
             <header>
               <div class="container">
-                <h1>&lt;Loader3 /&gt;</h1>
+                <h1>&lt;Portfolio /&gt;</h1>
               </div>
             </header>
             <div class="container">
-              <p>General component description.</p>
+              <p></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component" id="Posts">
+            <header>
+              <div class="container">
+                <h1>&lt;Posts /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component" id="Project">
+            <header>
+              <div class="container">
+                <h1>&lt;Project /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
               <table>
                 <thead>
                   <tr>
@@ -201,40 +294,88 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Children</strong></td>
-                    <td>Any</td>
+                    <td><strong>Project</strong></td>
+                    <td>Shape</td>
                     <td></td>
-                    <td>The content you wish to load</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Height</strong></td>
-                    <td>Number</td>
                     <td></td>
-                    <td>Optional loader container height parameter</td>
                   </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component" id="ProjectDetail">
+            <header>
+              <div class="container">
+                <h1>&lt;ProjectDetail /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
+              <table>
+                <thead>
                   <tr>
-                    <td><strong>Loading</strong></td>
-                    <td>Bool</td>
-                    <td>false</td>
-                    <td>Boolean to determine whether the loader should be shown</td>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
                   </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component" id="ProjectShowcase">
+            <header>
+              <div class="container">
+                <h1>&lt;ProjectShowcase /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
+              <table>
+                <thead>
                   <tr>
-                    <td><strong>Style</strong></td>
-                    <td>Object</td>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Project</strong></td>
+                    <td>Shape</td>
                     <td></td>
-                    <td>Optional style options for the loader container</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Text</strong></td>
-                    <td>String</td>
                     <td></td>
-                    <td>Optional loading text to be displayed below the loader</td>
                   </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component" id="Projects">
+            <header>
+              <div class="container">
+                <h1>&lt;Projects /&gt;</h1>
+              </div>
+            </header>
+            <div class="container">
+              <p></p>
+              <table>
+                <thead>
                   <tr>
-                    <td><strong>Width</strong></td>
-                    <td>Number</td>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Onprojectclick</strong></td>
+                    <td>Func</td>
                     <td></td>
-                    <td>Optional loader container width parameter</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>

@@ -124,22 +124,25 @@ const getComponentName = (filename) => (
 
 const run = (files) => {
   let docs;
+  let props;
 
   const components = files.map(file => {
     docs = docgen.parse(fs.readFileSync(file, 'utf8'));
+    props = [];
+
+    if (docs.props) {
+      props = Object.keys(docs.props)
+        .map(prop => (Object.assign(docs.props[prop], {
+          name: prop,
+          type: docs.props[prop].type.name,
+          defaultValue: docs.props[prop].defaultValue ?
+            docs.props[prop].defaultValue.value : undefined
+        })));
+    }
 
     return Object.assign(docs, {
       name: getComponentName(file),
-      props: _.sortBy(
-        Object.keys(docs.props)
-          .map(prop => (Object.assign(docs.props[prop], {
-            name: prop,
-            type: docs.props[prop].type.name,
-            defaultValue: docs.props[prop].defaultValue ?
-              docs.props[prop].defaultValue.value : undefined
-          }))),
-          'name'
-        )
+      props: _.sortBy(props, 'name')
     });
   });
 
