@@ -1,7 +1,13 @@
-<p align="center"><img src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" title="Docky" /></p>
+<p align="center">
+  <img src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" alt="Docky" />
+</p>
 
-# <h1 align="center">Docky</h1>
-<p align="center">Generate Documentation for React Components.</p>
+<h1 align="center">
+  Docky
+</h1>
+<p align="center">
+  Generate Documentation for React Components.
+</p>
 
 ## CLI Usage
 
