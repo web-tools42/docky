@@ -5,11 +5,11 @@
   "description": "Generate JavaScript documentation",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel watch sass:watch",
+    "start": "npm-run-all --parallel watch sass:watch docs:watch",
     "sass": "sass ./template/sass/main.scss ./template/css/main.css",
     "sass:watch": "sass --watch ./template/sass/main.scss:./template/css/main.css ./template/sass/main.scss:./docs/css/main.css",
     "docs": "./bin/docky.js components/**/*.js",
-    "docs:watch": "./bin/docky.js --watch components/**/*.js'",
+    "docs:watch": "./bin/docky.js components/**/*.js --watch",
     "watch": "./node_modules/.bin/browser-sync start --server 'docs' --files '.'"
   },
   "bin": {
