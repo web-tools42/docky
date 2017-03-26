@@ -31,6 +31,7 @@
     "global-require": 0,
     "no-console": 0,
     "eol-last": 0,
+    "dot-notation": 0,
 
     // ERRORS
     "arrow-body-style": [2, "as-needed"],
