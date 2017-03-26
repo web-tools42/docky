@@ -1,4 +1,6 @@
-# <p align="center">Docky</p>
+<img align="center">![Docky](https://github.com/markmur/docky/blob/master/docs/images/docky.png?raw=true)
+
+# <h1 align="center">Docky</h1>
 
 <p align="center">Generate Documentation for React Components.</p>
 
