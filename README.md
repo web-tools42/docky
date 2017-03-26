@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" alt="Docky" />
+  <img src="https://github.com/markmur/docky/raw/master/docs/images/docky.png?raw=true" width="150" alt="Docky" />
 </p>
 
 <h1 align="center">
