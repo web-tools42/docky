@@ -177,7 +177,7 @@ module.exports = (files, options = {}) => {
     chokidar.watch(files)
       .on('change', (p) => {
         log(p, 'changed');
-        run(files, options);
+        return run(files, options);
       });
   }
 };
