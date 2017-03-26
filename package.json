@@ -19,9 +19,9 @@
     "type": "git",
     "url": "https://github.com/markmur/docky.git"
   },
-  "homepage": "https://github.com/markmur/docky.git",
+  "homepage": "https://github.com/markmur/docky",
   "author": "Mark Murray <mark@boxfish.com>",
-  "license": "MIT",
+  "license": "BSD",
   "dependencies": {
     "chokidar": "^1.6.1",
     "colors": "^1.1.2",
