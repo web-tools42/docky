@@ -63,3 +63,7 @@ Alternatively, you can add a `:watch` flag to auto-generate on change:
 ```shell
 npm run sass:watch
 ```
+
+### Thanks
+
+This tool relies heavily on the [react-docgen](https://github.com/reactjs/react-docgen) project by the reactjs team so many thanks to those who have made Docky possible.

@@ -72,7 +72,11 @@ function copyAssets() {
  */
 function cleanDocsFolder() {
   log('Cleaning Docs folder');
-  return del(['docs/*']);
+  return del([
+    'docs/css',
+    'docs/js',
+    'index.html'
+  ]);
 }
 
 
