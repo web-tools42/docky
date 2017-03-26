@@ -1,4 +1,9 @@
-<img align="center" src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true" width="150" title="Docky" />
+<p align="center">
+  <img
+    src="https://github.com/markmur/docky/raw/master/template/images/docky.png?raw=true"
+    width="150"
+    title="Docky" />
+</p>
 
 # <h1 align="center">Docky</h1>
 
