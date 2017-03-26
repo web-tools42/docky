@@ -132,8 +132,6 @@ const parseReadme = (readme) => {
     if (i % 2 === 0) structure[part] = parts[i + 1];
   });
 
-  console.log(structure);
-
   return structure;
 };
 
@@ -173,8 +171,6 @@ const run = (files, options) => {
   if (!options.noreadme && fileExists('./README.md')) {
     data.readme = fs.readFileSync('./README.md', 'utf8');
     data.readmeParts = parseReadme(data.readme);
-
-    console.log(Object.keys(data.readmeParts));
   }
 
   pug.renderFile(`${dockyPath}/template/template.pug`, data, (renderErr, html) => {
