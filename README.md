@@ -4,7 +4,7 @@
     width="150"
     title="Docky" />
 </p>
-## <h1 align="center">Docky</h1>
+# Docky
 <p align="center">Generate Documentation for React Components.</p>
 
 ## CLI Usage
