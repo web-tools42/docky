@@ -3,11 +3,13 @@
 const Docky = require('../index.js');
 
 const options = {
-  watch: false
+  watch: false,
+  noreadme: false
 };
 
 const flags = {
-  watch: ['-w', '--watch']
+  watch: ['-w', '--watch'],
+  noreadme: ['--no-readme']
 };
 
 if (process.argv.length < 3) {

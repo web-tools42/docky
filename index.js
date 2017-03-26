@@ -122,7 +122,7 @@ const getComponentName = (filename) => (
   filename.replace(/^(.*)\/(\w+)(.jsx?)$/g, '$2')
 );
 
-const run = (files) => {
+const run = (files, options) => {
   let docs;
   let props;
 
@@ -154,7 +154,7 @@ const run = (files) => {
     capitalize: _.capitalize
   };
 
-  if (fileExists('./README.md')) {
+  if (!options.noreadme && fileExists('./README.md')) {
     data.readme = fs.readFileSync('./README.md', 'utf8');
   }
 
@@ -171,13 +171,13 @@ const run = (files) => {
  * @param  {Object} options - additonal options
  */
 module.exports = (files, options = {}) => {
-  run(files);
+  run(files, options);
 
   if (options.watch) {
     chokidar.watch(files)
       .on('change', (p) => {
         log(p, 'changed');
-        run(files);
+        run(files, options);
       });
   }
 };
