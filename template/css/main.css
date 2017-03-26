@@ -1,5 +1,5 @@
 html, body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 100%;
   line-height: 1.65; }
 
@@ -14,6 +14,15 @@ code, kbd, pre, samp {
 
 code {
   border-radius: 4px; }
+
+h2 {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eee; }
+
+blockquote {
+  padding: 0 1em;
+  color: #777;
+  border-left: 0.25em solid #ddd; }
 
 *,
 ::after,
@@ -30,17 +39,36 @@ input[type="search"] {
 
 header {
   width: 100%;
-  background: #FF6E6E;
+  background: #2E8CFF;
   color: white;
-  padding: 1em; }
-  header > span {
-    opacity: 0.6;
-    font-style: italic;
-    font-size: 0.9em; }
-  header > a {
-    position: relative;
-    float: right;
-    top: 3px; }
+  padding: 0.75em 1em;
+  overflow: hidden; }
+  header .title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 0.25em; }
+  header .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    header .info span.version {
+      opacity: 0.6;
+      font-style: italic;
+      font-size: 0.9em; }
+    header .info .github {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: background 150ms ease; }
+      header .info .github:hover {
+        background: rgba(255, 255, 255, 0.2); }
+      header .info .github img {
+        margin-left: 0.75em; }
 
 main {
   display: flex;
@@ -50,47 +78,47 @@ main {
     border-right: 1px solid #eee;
     position: fixed;
     top: 0;
-    background: ghostwhite;
     width: 260px;
     box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.05); }
-    main aside .group-name {
-      margin-right: 1.5em;
-      margin-bottom: 0.5em;
-      color: #252525;
-      text-transform: capitalize; }
     main aside ul {
       height: calc(100vh - 60px);
       overflow-y: scroll;
       list-style: none;
       padding: 0;
       padding-bottom: 5em;
-      margin: 0;
-      text-align: right; }
-      main aside ul li:first-of-type a {
-        border-top: 1px solid #eee; }
-      main aside ul li a {
-        display: block;
-        font-size: 0.9em;
-        padding: 0.75em 2em;
-        border-bottom: 1px solid #eee;
-        color: #656565; }
-        main aside ul li a:hover {
-          background: white; }
-        main aside ul li a.active {
-          color: #FF6E6E; }
+      margin: 0; }
+      main aside ul li.component-name {
+        color: #252525;
+        text-transform: capitalize; }
+        main aside ul li.component-name:first-of-type a {
+          border-top: 1px solid #eee; }
+        main aside ul li.component-name a {
+          display: block;
+          font-size: 0.9em;
+          padding: 0.75em 1.5em;
+          border-bottom: 1px solid #eee;
+          color: #656565;
+          transition: background 150ms ease; }
+          main aside ul li.component-name a:hover {
+            background: #fafafb; }
+          main aside ul li.component-name a.active {
+            color: #2E8CFF; }
   main section {
     max-width: calc(100% - 260px);
     flex: 1;
-    background: #fafafb;
     margin-left: 260px; }
-    main section h1 {
-      text-align: center;
+    main section .component {
+      padding-bottom: 150px; }
+    main section header {
       padding: 0.75em;
       background: white;
       margin-top: -1px;
       margin-bottom: 0;
       border-top: 1px solid #eee;
       border-bottom: 1px solid #eee; }
+    main section h1 {
+      text-align: left;
+      color: black; }
     main section article {
       padding: 4em 23%;
       border-bottom: 1px solid #eee;
@@ -109,6 +137,9 @@ code.lang-shell {
 code {
   background: #f4f4f7;
   padding: 6px; }
+  code div {
+    margin: 0;
+    display: block; }
 
 .badge {
   padding: 4px 8px;
@@ -123,7 +154,23 @@ div#readme {
   padding: 1em 12%; }
 
 .container {
-  max-width: 600px;
-  margin: 0 auto; }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2em; }
+
+table th, table td {
+  padding: 0.75em 1.5em 0.75em 1em; }
+table thead {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+  opacity: 0.4; }
+table tbody td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  line-height: 1.65;
+  color: #666666; }
+table td > strong {
+  color: black; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,23 +1,38 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var package = require('../package.json');
-var Docky = require('../index.js');
+const Docky = require('../index.js');
 
-require('colors');
+const options = {
+  watch: false
+};
 
-program
-  .version(package.version, '-v, --version')
-  .usage('<file> [options]')
-  .arguments('<file>')
-  .option('-r, --readme <readme>', 'Specify a README file')
-  .action(function (file, options) {
-    Docky(file, options);
-  })
-  .parse(process.argv);
+const flags = {
+  watch: ['-w', '--watch']
+};
 
-if (!program.args.length) {
-  console.log('You must specify at least one file to run docky.'.red);
-  program.help();
+if (process.argv.length < 3) {
+  console.error('\nNo file(s) specified.\n'.red);
   process.exit(1);
 }
+
+const args = process.argv.slice(2);
+
+const files =
+  Object.keys(flags)
+    .map(flag => (
+      args.map(arg => {
+        if (flags[flag].indexOf(arg) > -1) {
+          options[flag] = true;
+          return null;
+        }
+
+        return arg;
+      }).filter(x => x)
+  ))[0];
+
+if (!files || !files.length) {
+  console.error('\nNo file(s) specified.\n'.red);
+  process.exit(1);
+}
+
+Docky(files, options);

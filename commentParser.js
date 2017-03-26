@@ -1,15 +1,18 @@
+#!/usr/bin/env babel-node
+
 const dockyPkg = require('./package.json');
-const docgen = require('react-docgen');
+const parse = require('comment-parser');
 const _ = require('lodash');
 const fs = require('fs-extra');
 const path = require('path');
-const pug = require('pug');
+const jade = require('jade');
+const docgen = require('react-docgen');
+const extractor = require('./parser.js');
+require('colors');
 const del = require('del');
 const Promise = require('promised-io/promise');
 const FS = require('promised-io/fs');
-const chokidar = require('chokidar');
-
-require('colors');
+const glob = require('glob');
 
 const cwd = process.cwd();
 const dockyPath = path.resolve(__dirname);
@@ -96,7 +99,7 @@ function createDocs(html) {
 
   if (folderExists('docs')) {
     cleanDocsFolder()
-      .then(() => writeTemplateFile(html))
+      .then(writeTemplateFile(html))
       .then(copyAssets)
       .then(() => {
         log('\u2713'.green, 'Docs successfully generated');
@@ -118,63 +121,55 @@ function createDocs(html) {
   }
 }
 
-const getComponentName = (filename) => (
-  filename.replace(/^(.*)\/(\w+)(.jsx?)$/g, '$2')
-);
-
-const run = (files) => {
-  let docs;
-
-  const components = files.map(file => {
-    docs = docgen.parse(fs.readFileSync(file, 'utf8'));
-
-    return Object.assign(docs, {
-      name: getComponentName(file),
-      props: _.sortBy(
-        Object.keys(docs.props)
-          .map(prop => (Object.assign(docs.props[prop], {
-            name: prop,
-            type: docs.props[prop].type.name,
-            defaultValue: docs.props[prop].defaultValue ?
-              docs.props[prop].defaultValue.value : undefined
-          }))),
-          'name'
-        )
-    });
-  });
-
-  const data = {
-    package: pkg,
-    components: _.sortBy(components, 'name'),
-    pretty: true,
-    markdown: require('marked'),
-    capitalize: _.capitalize
-  };
-
-  if (fileExists('./README.md')) {
-    data.readme = fs.readFileSync('./README.md', 'utf8');
-  }
-
-  pug.renderFile(`${dockyPath}/template/template.pug`, data, (renderErr, html) => {
-    if (renderErr) throw renderErr;
-
-    createDocs(html);
-  });
-};
-
 /**
  * docky.js
  * @param  {String} file - the file to parse
  * @param  {Object} options - additonal options
  */
-module.exports = (files, options = {}) => {
-  run(files);
+module.exports = (file, options) => {
+  let hasReadme;
+  let readme;
 
-  if (options.watch) {
-    chokidar.watch(files)
-      .on('change', (p) => {
-        log(p, 'changed');
-        run(files);
-      });
+  if (options.readme) {
+    if (fileExists(options.readme)) {
+      hasReadme = true;
+      readme = fs.readFileSync(`${cwd}/${options.readme}`, 'utf8');
+    } else {
+      console.log('[Warning] README file not found. Continuing without it...'.red);
+    }
   }
+
+  if (!fileExists(file)) {
+    console.error(`${file} does not exist. You must specify an existing file.`.red);
+    process.exit(1);
+  }
+
+  log(`Processing "${file}"...`.green);
+
+  parse.file(file, (err, source) => {
+    console.log(docgen.parse(source));
+
+    if (err) throw err;
+
+    source = extractor.getMethodNames(source);
+    source = extractor.getParameters(source);
+    source = extractor.getExamples(source);
+    source = extractor.getDeprecated(source);
+    source = extractor.groupMethods(source);
+
+    const data = {
+      package: pkg,
+      methods: source,
+      pretty: true,
+      markdown: require('marked'),
+      _,
+      readme: hasReadme ? readme : undefined
+    };
+
+    jade.renderFile(`${dockyPath}/template/template.jade`, data, (renderErr, html) => {
+      if (renderErr) throw renderErr;
+
+      createDocs(html);
+    });
+  });
 };

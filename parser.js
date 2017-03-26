@@ -55,6 +55,18 @@ module.exports = {
     return methods;
   },
 
+  getDescriptions: function(methods) {
+    methods.forEach(method => {
+      _.each(method.tags, function (tag) {
+        if (tag.tag === 'description') {
+          method.description = tag.source.replace('@description ', '');
+        }
+      });
+    });
+
+    return methods;
+  },
+
   /**
    * Gets each method parameter
    * @method getParameters
@@ -113,9 +125,9 @@ module.exports = {
     methods.forEach(method => {
 
       // Method is grouped
-      if (_.some(method.tags, { tag: 'group' })) {
+      if (_.some(method.tags, { tag: 'name' })) {
         _.each(method.tags, tag => {
-          if (tag.tag === 'group') {
+          if (tag.tag === 'name') {
 
             tagName = tag.name.toLowerCase();
 
@@ -134,7 +146,6 @@ module.exports = {
       }
     });
 
-    methods = Object.assign({}, { grouped }, { ungrouped });
-    return methods;
+    return { grouped };
   },
 };

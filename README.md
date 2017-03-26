@@ -1,40 +1,60 @@
-# Docky
-Auto-Generate JavaScript documenation.
+# <p align="center">Docky</p>
+
+<p align="center">Auto-Generate JavaScript documenation.</p>
+
+
 
 ## CLI Usage
 
 Install docky globally:
 
-`npm install -g docky`
+```shell
+npm install -g docky
+```
 
-Run docky:
+Run docky on a single file or entire folder:
 
-`docky <filename>.js`
-
-## Programmatic Usage
-
-`npm install --save-dev docky`
-
-```javascript
-const docky = require('docky');
-
-docky('filename.js', {
-  readme: '../README.md'
-});
+```shell
+docky src/components/**/*.js
 ```
 
 ## Options
-```shell
 
-  Usage: docky <file> [options]
+```shell
+  Usage: docky <files> [options]
 
   Options:
 
     -h, --help               output usage information
     -v, --version            output the version number
-    -r, --readme <readme>    Specify a README file
+    -w, --watch              run on file change
+
+
 ```
 
-## Scripts
-Compile the template SASS:
-`npm run sass`
+## Contributing
+
+Docky uses Pug (formally known as Jade) and SASS for template generation. The files can be found under the `template` directory.
+
+There is a `components` directory which contains some example React components for testing. You can run docky over the local folder by running:
+
+```shell
+npm run docs
+```
+
+or
+
+```shell
+./bin/docky.js components/**/*.js
+```
+
+To compile the sass, run:
+```shell
+npm run sass
+```
+
+Alternatively, you can add a `:watch` flag to auto-generate on change:
+
+```shell
+npm run sass:watch
+```

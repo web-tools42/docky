@@ -1,0 +1,9 @@
+article(id=prop.name)
+  p= prop.name
+  if p.params
+    h4 Props:
+    ul.params
+      each param in method.params
+        li
+          code #{param.name}
+            span  - {#{capitalize(param.type)}} #{param.description}

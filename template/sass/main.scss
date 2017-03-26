@@ -1,11 +1,11 @@
 $sidebar-width: 260px;
 $header-height: 60px;
-$primary: #FF6E6E;
+$primary: #2E8CFF;
 
 //=======================================//
 
 html, body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 100%;
   line-height: 1.65;
 }
@@ -24,6 +24,17 @@ code, kbd, pre, samp {
 
 code {
   border-radius: 4px;
+}
+
+h2 {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eee;
+}
+
+blockquote {
+  padding: 0 1em;
+  color: #777;
+  border-left: 0.25em solid #ddd;
 }
 
 *,
@@ -45,18 +56,45 @@ header {
   width: 100%;
   background: $primary;
   color: white;
-  padding: 1em;
+  padding: 0.75em 1em;
+  overflow: hidden;
 
-  > span {
-    opacity: 0.6;
-    font-style: italic;
-    font-size: 0.9em;
+  .title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 0.25em;
   }
 
-  > a {
-    position: relative;
-    float: right;
-    top: 3px;
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span.version {
+      opacity: 0.6;
+      font-style: italic;
+      font-size: 0.9em;
+    }
+
+    .github {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background: rgba(white, 0.1);
+      transition: background 150ms ease;
+
+      &:hover {
+        background: rgba(white, 0.2);
+      }
+
+      img {
+        margin-left: 0.75em;
+      }
+    }
   }
 }
 
@@ -69,16 +107,8 @@ main {
     border-right: 1px solid #eee;
     position: fixed;
     top: 0;
-    background: ghostwhite;
     width: $sidebar-width;
     box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.05);
-
-    .group-name {
-      margin-right: 1.5em;
-      margin-bottom: 0.5em;
-      color: #252525;
-      text-transform: capitalize;
-    }
 
     ul {
       height: calc(100vh - #{$header-height});
@@ -87,9 +117,10 @@ main {
       padding: 0;
       padding-bottom: 5em;
       margin: 0;
-      text-align: right;
 
-      li {
+      li.component-name {
+        color: #252525;
+        text-transform: capitalize;
 
         &:first-of-type a {
           border-top: 1px solid #eee;
@@ -98,12 +129,13 @@ main {
         a {
           display: block;
           font-size: 0.9em;
-          padding: 0.75em 2em;
+          padding: 0.75em 1.5em;
           border-bottom: 1px solid #eee;
           color: #656565;
+          transition: background 150ms ease;
 
           &:hover {
-            background: white;
+            background: lighten(#f4f4f7, 2%);
           }
 
           &.active {
@@ -117,17 +149,24 @@ main {
   section {
     max-width: calc(100% - #{$sidebar-width});
     flex: 1;
-    background: lighten(#f4f4f7, 2%);
     margin-left: $sidebar-width;
 
-    h1 {
-      text-align: center;
+    .component {
+      padding-bottom: 150px;
+    }
+
+    header {
       padding: 0.75em;
       background: white;
       margin-top: -1px;
       margin-bottom: 0;
       border-top: 1px solid #eee;
       border-bottom: 1px solid #eee;
+    }
+
+    h1 {
+      text-align: left;
+      color: black;
     }
 
     article {
@@ -158,6 +197,11 @@ code.lang-shell {
 code {
   background: #f4f4f7;
   padding: 6px;
+
+  div {
+    margin: 0;
+    display: block;
+  }
 }
 
 .badge {
@@ -175,6 +219,32 @@ div#readme {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 0 2em;
+}
+
+table {
+
+  th, td {
+    padding: 0.75em 1.5em 0.75em 1em;
+  }
+
+  thead {
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 11px;
+    opacity: 0.4;
+  }
+
+  tbody td {
+    border-bottom: 1px solid rgba(black, 0.03);
+    line-height: 1.65;
+    color: lighten(black, 40%);
+  }
+
+  td > strong {
+    color: black;
+  }
 }
