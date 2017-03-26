@@ -5,7 +5,7 @@
   "description": "Generate JavaScript documentation",
   "main": "index.js",
   "scripts": {
-    "start": "npm run watch | npm run sass:watch",
+    "start": "npm-run-all --parallel watch sass:watch",
     "sass": "sass ./template/sass/main.scss ./template/css/main.css",
     "sass:watch": "sass --watch ./template/sass/main.scss:./template/css/main.css ./template/sass/main.scss:./docs/css/main.css",
     "docs": "./bin/docky.js components/**/*.js",
@@ -46,6 +46,7 @@
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-react": "^6.10.3",
+    "npm-run-all": "^4.0.2"
   }
 }
