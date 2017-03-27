@@ -41,6 +41,7 @@ Options:
 
 -h, --help              output usage information
 -V, --version           output the version number
+-c, --color <HEX>       Change the primary theme color (defaults to blue)
 -w, --watch "<files>"   Watch specific files and compile on change (comma separate directories/files to watch multiple)
 -i, --ignore "<files>"  Ignore specified files from docs
 --use-readme [bool]     include/omit README from your documentation (defaults to true)

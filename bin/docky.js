@@ -14,7 +14,8 @@ const parseBool = (str) => (
 const parseList = (val) => (val.split(','));
 
 const defaults = {
-  useReadme: true
+  useReadme: true,
+  color: '#2E8CFF'
 };
 
 Commander
@@ -22,6 +23,7 @@ Commander
   .arguments('[files...]')
   .option('-w, --watch <files>', 'Watch specific files and compile on change (comma separate directories/files to watch multiple)', parseList)
   .option('-i, --ignore <files>', 'Ignore specified files from docs', parseList)
+  .option('-c, --color <color>', 'Specify a theme color (RGB or HEX)')
   .option('--use-readme [bool]', 'Include/omit README from your documentation (defaults to true)', parseBool)
   .action((files) => {
     if (!files || !files.length) {
@@ -29,7 +31,7 @@ Commander
       process.exit(1);
     }
 
-    const { useReadme, watch, ignore } = Commander;
+    const { useReadme, watch, ignore, color } = Commander;
 
     const options = Object.assign({}, defaults);
 
@@ -37,7 +39,11 @@ Commander
       options.useReadme = useReadme;
     }
 
-    const validFiles = without(files, ...ignore);
+    if (typeof color !== 'undefined') {
+      options.color = color;
+    }
+
+    const validFiles = ignore && ignore.length ? without(files, ...ignore) : files;
 
     let filesToWatch = [];
 

@@ -168,7 +168,8 @@ const run = (files, options = {}) => {
     pretty: true,
     markdown: require('marked'),
     capitalize: _.capitalize,
-    kebabCase: _.kebabCase
+    kebabCase: _.kebabCase,
+    color: options.color
   };
 
   if (options.useReadme && fileExists('./README.md')) {
