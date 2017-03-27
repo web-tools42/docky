@@ -7,7 +7,6 @@ const pug = require('pug');
 const del = require('del');
 const Promise = require('promised-io/promise');
 const FS = require('promised-io/fs');
-const chokidar = require('chokidar');
 
 require('colors');
 
@@ -139,7 +138,7 @@ const parseReadme = (readme) => {
   return structure;
 };
 
-const run = (files, options) => {
+const run = (files, options = {}) => {
   let docs;
   let props;
 
@@ -172,7 +171,7 @@ const run = (files, options) => {
     kebabCase: _.kebabCase
   };
 
-  if (!options.noreadme && fileExists('./README.md')) {
+  if (options.useReadme && fileExists('./README.md')) {
     data.readme = fs.readFileSync('./README.md', 'utf8');
     data.readmeParts = parseReadme(data.readme);
   }
@@ -189,14 +188,4 @@ const run = (files, options) => {
  * @param  {String} file - the file to parse
  * @param  {Object} options - additonal options
  */
-module.exports = (files, options = {}) => {
-  run(files, options);
-
-  if (options.watch) {
-    chokidar.watch(files)
-      .on('change', (p) => {
-        log(p, 'changed');
-        return run(files, options);
-      });
-  }
-};
+module.exports = (files, options = {}) => run(files, options);

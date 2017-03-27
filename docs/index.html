@@ -53,16 +53,24 @@
 <pre><code class="lang-shell">npm install -g docky
 </code></pre>
 <p>Run docky on a single file or entire folder:</p>
-<pre><code class="lang-shell">docky src/components/**/*.js
+<pre><code class="lang-bash">docky src/components/**/*.js
+</code></pre>
+<h3 id="example-usage">Example Usage</h3>
+<pre><code class="lang-bash">docky src/components/**/*.js \ # specify the components to parse
+  --watch &quot;src/components/**/*.js&quot;,&quot;./README.md&quot; \ # watch files
+  --ignore &quot;src/components/**/index.js&quot; \ # ignored files
+  --use-readme=false
 </code></pre>
 <h3 id="options">Options</h3>
-<pre><code class="lang-shell">  Usage: docky &lt;files&gt; [options]
+<pre><code class="lang-bash">Usage: docky [files] [options]
 
-  Options:
+Options:
 
-    -h, --help               output usage information
-    -v, --version            output the version number
-    -w, --watch              run on file change
+-h, --help              output usage information
+-V, --version           output the version number
+-w, --watch &quot;&lt;files&gt;&quot;   Watch specific files and compile on change (comma separate directories/files to watch multiple)
+-i, --ignore &quot;&lt;files&gt;&quot;  Ignore specified files from docs
+--use-readme [bool]     include/omit README from your documentation (defaults to true)
 </code></pre>
 </div>
           <h2 id="contributing">Contributing</h2>

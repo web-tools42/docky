@@ -19,20 +19,31 @@ npm install -g docky
 
 Run docky on a single file or entire folder:
 
-```shell
+```bash
 docky src/components/**/*.js
+```
+
+### Example Usage
+
+```bash
+docky src/components/**/*.js \ # specify the components to parse
+  --watch "src/components/**/*.js","./README.md" \ # watch files
+  --ignore "src/components/**/index.js" \ # ignored files
+  --use-readme=false
 ```
 
 ### Options
 
-```shell
-  Usage: docky <files> [options]
+```bash
+Usage: docky [files] [options]
 
-  Options:
+Options:
 
-    -h, --help               output usage information
-    -v, --version            output the version number
-    -w, --watch              run on file change
+-h, --help              output usage information
+-V, --version           output the version number
+-w, --watch "<files>"   Watch specific files and compile on change (comma separate directories/files to watch multiple)
+-i, --ignore "<files>"  Ignore specified files from docs
+--use-readme [bool]     include/omit README from your documentation (defaults to true)
 
 
 ```

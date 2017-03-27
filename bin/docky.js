@@ -1,40 +1,60 @@
 #!/usr/bin/env node
 
 const Docky = require('../index.js');
+const pkg = require('../package.json');
+const Commander = require('commander');
+const without = require('lodash/without');
+const glob = require('glob');
+const chokidar = require('chokidar');
 
-const options = {
-  watch: false,
-  noreadme: false
+const parseBool = (str) => (
+    str ? str.toLowerCase() === 'true' : true
+);
+
+const parseList = (val) => (val.split(','));
+
+const defaults = {
+  useReadme: true
 };
 
-const flags = {
-  watch: ['-w', '--watch'],
-  noreadme: ['--no-readme']
-};
+Commander
+  .version(pkg.version)
+  .arguments('[files...]')
+  .option('-w, --watch <files>', 'Watch specific files and compile on change (comma separate directories/files to watch multiple)', parseList)
+  .option('-i, --ignore <files>', 'Ignore specified files from docs', parseList)
+  .option('--use-readme [bool]', 'Include/omit README from your documentation (defaults to true)', parseBool)
+  .action((files) => {
+    if (!files || !files.length) {
+      console.error('\nNo file(s) specified.\n'.red);
+      process.exit(1);
+    }
 
-if (process.argv.length < 3) {
-  console.error('\nNo file(s) specified.\n'.red);
-  process.exit(1);
-}
+    const { useReadme, watch, ignore } = Commander;
 
-const args = process.argv.slice(2);
+    const options = Object.assign({}, defaults);
 
-const files =
-  Object.keys(flags)
-    .map(flag => (
-      args.map(arg => {
-        if (flags[flag].indexOf(arg) > -1) {
-          options[flag] = true;
-          return null;
-        }
+    if (typeof useReadme !== 'undefined') {
+      options.useReadme = useReadme;
+    }
 
-        return arg;
-      }).filter(x => x)
-  ))[0];
+    const validFiles = without(files, ...ignore);
 
-if (!files || !files.length) {
-  console.error('\nNo file(s) specified.\n'.red);
-  process.exit(1);
-}
+    let filesToWatch = [];
 
-Docky(files, options);
+    if (watch && watch.length) {
+      filesToWatch = watch
+          .map(pattern => glob.sync(pattern))
+          .reduce((arr, val) => (arr.concat(val)), []);
+    }
+
+    Docky(validFiles, options);
+
+    if (filesToWatch.length) {
+      chokidar.watch(filesToWatch)
+        .on('change', (p) => {
+          console.log(p, 'changed');
+          return Docky(validFiles, options);
+        });
+    }
+  })
+  .parse(process.argv);
