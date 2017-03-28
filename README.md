@@ -9,6 +9,39 @@
   Generate Documentation for React Components.
 </p>
 
+Docky is a tool for generating documentation for React component libraries. It works by reading a specified README (optional) and directory of components and parsing the components and their comments, using [react-docgen](https://github.com/reactjs/react-docgen).
+
+If a Readme file is specified, Docky will auto-parse the h2 (##) headers and add them to the sidebar with relative links to the page content.
+
+## Example Component
+
+```javascript
+import React, { Component, PropTypes } from 'react';
+
+/**
+ * Some general description of your component
+ */
+class App extends Component {
+  render = ({ className, children }) => (
+    <main className={className}>
+      {children}
+    </main>
+  )
+}
+
+App.propTypes = {
+  /**
+   * Description of prop type
+   */
+  children: PropTypes.any.isRequired,
+  /**
+   * Description of prop type
+   */
+  className: PropTypes.string.isRequired
+};
+
+```
+
 ## CLI Usage
 
 Install docky globally:
@@ -23,7 +56,7 @@ Run docky on a single file or entire folder:
 docky src/components/**/*.js
 ```
 
-### Example Usage
+### Example Usage with Options
 
 ```bash
 docky src/components/**/*.js \ # specify the components to parse
@@ -31,6 +64,8 @@ docky src/components/**/*.js \ # specify the components to parse
   --ignore "src/components/**/index.js" \ # ignored files
   --use-readme=false
 ```
+
+> Tip: to avoid retyping the command every time, add it to an NPM script in in your package.json
 
 ### Options
 
@@ -59,22 +94,14 @@ There is a `components` directory which contains some example React components f
 npm run docs
 ```
 
-or
-
-```shell
-./bin/docky.js components/**/*.js
-```
-
 To compile the sass, run:
 ```shell
 npm run sass
 ```
 
-Alternatively, you can add a `:watch` flag to auto-generate on change:
+### Live Reload Compilation
 
-```shell
-npm run sass:watch
-```
+To auto-compile the docs on change, use the `npm start` command which will start BrowserSync (for live reloading), SASS --watch (for regenerating csss) and Docky --watch (for re-compilation).
 
 ### Thanks
 

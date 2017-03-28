@@ -47,9 +47,18 @@ h2 {
 }
 
 blockquote {
-  padding: 0 1em;
-  color: #777;
-  border-left: 0.25em solid #ddd;
+  padding: 0.75em;
+  padding-left: 1em;
+  margin: 0;
+  font-size: 0.95em;
+  color: rgba(black, 0.6);
+  background: rgba(#2E8CFF, 0.05);
+  border-left: 0.25em solid rgba(#2E8CFF, 0.5);
+  width: 100%;
+
+  > p {
+    margin: 0;
+  }
 }
 
 *,

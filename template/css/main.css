@@ -32,9 +32,16 @@ h2 {
   border-bottom: 1px solid #eee; }
 
 blockquote {
-  padding: 0 1em;
-  color: #777;
-  border-left: 0.25em solid #ddd; }
+  padding: 0.75em;
+  padding-left: 1em;
+  margin: 0;
+  font-size: 0.95em;
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(46, 140, 255, 0.05);
+  border-left: 0.25em solid rgba(46, 140, 255, 0.5);
+  width: 100%; }
+  blockquote > p {
+    margin: 0; }
 
 *,
 ::after,
