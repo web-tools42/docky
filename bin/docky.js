@@ -43,7 +43,8 @@ Commander
       options.color = color;
     }
 
-    const validFiles = ignore && ignore.length ? without(files, ...ignore) : files;
+    const ignoreFiles = [].concat(...ignore.map(pattern => glob.sync(pattern)));
+    const validFiles = ignoreFiles.length ? without(files, ...ignoreFiles) : files;
 
     let filesToWatch = [];
 
