@@ -74,7 +74,7 @@ function cleanDocsFolder() {
   return del([
     'docs/css',
     'docs/js',
-    'index.html'
+    'docs/index.html'
   ]);
 }
 
