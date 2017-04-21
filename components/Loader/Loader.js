@@ -1,8 +1,16 @@
+/* eslint-disable */
 import React, { PropTypes, Component } from 'react';
 import styles from './Loader.scss';
 
 /**
  * Higher order component that displays a loader until your content is finished loading.
+ *
+ * Usage: 
+ * ```
+ * <Loader loading={false}>
+ *    Some Content to Load
+ * </Loader>
+ * ```
  */
 class Loader extends Component {
   render() {

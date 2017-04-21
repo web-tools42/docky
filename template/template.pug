@@ -64,7 +64,7 @@ html
                 .container
                   h1= '<' + component.name + ' />'
               .container
-                p= component.description
+                p!= markdown(component.description)
                 table
                   thead
                     tr
