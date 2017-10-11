@@ -13,6 +13,9 @@ Docky is a tool for generating documentation for React component libraries. It w
 
 If a Readme file is specified, Docky will auto-parse the h2 (##) headers and add them to the sidebar with relative links to the page content.
 
+[View Demo](http://markmur.github.io/docky/)
+
+
 ## Example Component
 
 ```javascript
