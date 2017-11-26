@@ -23,6 +23,7 @@
   "author": "Mark Murray <mark@boxfish.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "chalk": "^2.3.0",
     "chokidar": "^1.6.1",
     "colors": "^1.1.2",
     "commander": "^2.9.0",

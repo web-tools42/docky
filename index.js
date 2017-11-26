@@ -7,6 +7,7 @@ const pug = require('pug');
 const del = require('del');
 const Promise = require('promised-io/promise');
 const FS = require('promised-io/fs');
+const chalk = require('chalk');
 
 require('colors');
 
@@ -71,13 +72,8 @@ function copyAssets() {
  */
 function cleanDocsFolder() {
   log('Cleaning Docs folder');
-  return del([
-    'docs/css',
-    'docs/js',
-    'docs/index.html'
-  ]);
+  return del(['docs/css', 'docs/js', 'docs/index.html']);
 }
-
 
 /**
  * Writes the template file to /docs
@@ -103,7 +99,7 @@ function createDocs(html) {
       .then(copyAssets)
       .then(() => {
         log('\u2713'.green, 'Docs successfully generated');
-        console.log('\n Type \'open docs/index.html\' to view them');
+        console.log("\n Type 'open docs/index.html' to view them");
       });
   } else {
     log('Creating docs folder');
@@ -115,17 +111,15 @@ function createDocs(html) {
         .then(copyAssets)
         .then(() => {
           log('\u2713'.green, 'Docs successfully generated');
-          console.log('\n Type \'open docs/index.html\' to view them');
+          console.log("\n Type 'open docs/index.html' to view them");
         });
     });
   }
 }
 
-const getComponentName = (filename) => (
-  filename.replace(/^(.*)\/(\w+)(.jsx?)$/g, '$2')
-);
+const getComponentName = filename => filename.replace(/^(.*)\/(\w+)(.jsx?)$/g, '$2');
 
-const parseReadme = (readme) => {
+const parseReadme = readme => {
   const structure = {};
   const parts = readme.split(/\n##\s(.+)\b/g);
 
@@ -139,28 +133,51 @@ const parseReadme = (readme) => {
 };
 
 const run = (files, options = {}) => {
-  let docs;
+  let docs = {};
   let props;
 
-  const components = files.map(file => {
-    docs = docgen.parse(fs.readFileSync(file, 'utf8'));
-    props = [];
+  log('Running...');
 
-    if (docs.props) {
-      props = Object.keys(docs.props)
-        .map(prop => (Object.assign(docs.props[prop], {
-          name: prop,
-          type: docs.props[prop].type.name,
-          defaultValue: docs.props[prop].defaultValue ?
-            docs.props[prop].defaultValue.value : undefined
-        })));
-    }
+  const components = files
+    .map(file => {
+      try {
+        docs = docgen.parse(fs.readFileSync(file, 'utf8'));
+      } catch (err) {
+        console.log(chalk.blue(`${file}`), chalk.grey(`... Skipped (${err})`));
+        return null;
+      }
 
-    return Object.assign(docs, {
-      name: getComponentName(file),
-      props: _.sortBy(props, 'name')
-    });
-  });
+      props = [];
+
+      if (docs.props) {
+        props = Object.keys(docs.props).map(prop => {
+          if (!docs.props[prop].type || !docs.props[prop].type.name) {
+            console.error(
+              chalk.red(
+                `'${prop}' is specified as a defaultValue but missing from the propTypes of ${file}`,
+              ),
+            );
+            process.exit(1);
+          }
+
+          console.log(chalk.blue(`${file}`), '... ', chalk.green('OK'));
+
+          return Object.assign(docs.props[prop], {
+            name: prop,
+            type: docs.props[prop].type.name,
+            defaultValue: docs.props[prop].defaultValue
+              ? docs.props[prop].defaultValue.value
+              : undefined,
+          });
+        });
+      }
+
+      return Object.assign(docs, {
+        name: getComponentName(file),
+        props: _.sortBy(props, 'name'),
+      });
+    })
+    .filter(x => x);
 
   const data = {
     package: pkg,
@@ -169,7 +186,7 @@ const run = (files, options = {}) => {
     markdown: require('marked'),
     capitalize: _.capitalize,
     kebabCase: _.kebabCase,
-    color: options.color
+    color: options.color,
   };
 
   const readmeExists = fileExists('./README.md');
