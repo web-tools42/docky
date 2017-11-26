@@ -143,7 +143,7 @@ const run = (files, options = {}) => {
       try {
         docs = docgen.parse(fs.readFileSync(file, 'utf8'));
       } catch (err) {
-        console.log(chalk.blue(`${file}`), chalk.grey(`... Skipped (${err})`));
+        console.log(chalk.grey(`${file}... Skipped (${err})`));
         return null;
       }
 
@@ -159,8 +159,6 @@ const run = (files, options = {}) => {
             );
             process.exit(1);
           }
-
-          console.log(chalk.blue(`${file}`), '... ', chalk.green('OK'));
 
           return Object.assign(docs.props[prop], {
             name: prop,
