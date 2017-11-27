@@ -138,6 +138,11 @@ const run = (files, options = {}) => {
 
   log('Running...');
 
+  if (!files.length) {
+    console.log(chalk.grey`No Components Found`);
+    process.exit(1);
+  }
+
   const components = files
     .map(file => {
       try {
@@ -169,6 +174,8 @@ const run = (files, options = {}) => {
           });
         });
       }
+
+      console.log(chalk.blue(`${file}`), chalk.grey('...'), chalk.green('OK'));
 
       return Object.assign(docs, {
         name: getComponentName(file),
