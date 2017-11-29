@@ -39,11 +39,12 @@ html
           each val, key in readmeParts
             li.heading
               a(href='#' + kebabCase(key))= key
-          li.heading.noclick
-            a Components
-          each component in components
-            li.subheading
-              a(href='#' + component.name)= component.name
+          if components.length
+            li.heading.noclick
+              a Components
+            each component in components
+              li.subheading
+                a(href='#' + component.name)= component.name
 
         footer
           p Generated with
