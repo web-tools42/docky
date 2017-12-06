@@ -7,10 +7,13 @@
   "scripts": {
     "start": "npm-run-all --parallel watch sass:watch docs:watch",
     "sass": "sass ./template/sass/main.scss ./template/css/main.css",
-    "sass:watch": "sass --watch ./template/sass/main.scss:./template/css/main.css ./template/sass/main.scss:./docs/css/main.css",
+    "sass:watch":
+      "sass --watch ./template/sass/main.scss:./template/css/main.css ./template/sass/main.scss:./docs/css/main.css",
     "docs": "./bin/docky.js components/**/*.js --ignore components/**/index.js",
-    "docs:watch": "./bin/docky.js components/**/*.js --use-readme --ignore components/**/index.js --watch 'template/**/*','./README.md'",
-    "watch": "./node_modules/.bin/browser-sync start --server 'docs' --files '.'"
+    "docs:watch":
+      "./bin/docky.js components/**/*.js --use-readme --ignore components/**/index.js --watch 'template/**/*','./README.md'",
+    "watch":
+      "./node_modules/.bin/browser-sync start --server 'docs' --files '.'"
   },
   "bin": {
     "docky": "./bin/docky.js"
@@ -43,9 +46,19 @@
     "browser-sync": "^2.18.8",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react-app": "^2.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "npm-run-all": "^4.0.2"
+    "npm-run-all": "^4.0.2",
+    "prettier": "^1.9.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none"
   }
 }

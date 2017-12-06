@@ -61,7 +61,7 @@ function copyAssets() {
   return Promise.all([
     fs.copy(`${dockyPath}/template/css`, 'docs/css'),
     fs.copy(`${dockyPath}/template/images`, 'docs/images'),
-    fs.copy(`${dockyPath}/template/js`, 'docs/js'),
+    fs.copy(`${dockyPath}/template/js`, 'docs/js')
   ]);
 }
 
@@ -117,7 +117,8 @@ function createDocs(html) {
   }
 }
 
-const getComponentName = filename => filename.replace(/^(.*)\/(\w+)(.jsx?)$/g, '$2');
+const getComponentName = filename =>
+  filename.replace(/^(.*)\/(\w+)(.jsx?)$/g, '$2');
 
 const parseReadme = readme => {
   const structure = {};
@@ -159,8 +160,8 @@ const run = (files, options = {}) => {
           if (!docs.props[prop].type || !docs.props[prop].type.name) {
             console.error(
               chalk.red(
-                `'${prop}' is specified as a defaultValue but missing from the propTypes of ${file}`,
-              ),
+                `'${prop}' is specified as a defaultValue but missing from the propTypes of ${file}`
+              )
             );
             process.exit(1);
           }
@@ -170,7 +171,7 @@ const run = (files, options = {}) => {
             type: docs.props[prop].type.name,
             defaultValue: docs.props[prop].defaultValue
               ? docs.props[prop].defaultValue.value
-              : undefined,
+              : undefined
           });
         });
       }
@@ -179,7 +180,7 @@ const run = (files, options = {}) => {
 
       return Object.assign(docs, {
         name: getComponentName(file),
-        props: _.sortBy(props, 'name'),
+        props: _.sortBy(props, 'name')
       });
     })
     .filter(x => x);
@@ -191,7 +192,7 @@ const run = (files, options = {}) => {
     markdown: require('marked'),
     capitalize: _.capitalize,
     kebabCase: _.kebabCase,
-    color: options.color,
+    color: options.color
   };
 
   const readmeExists = fileExists('./README.md');
@@ -207,11 +208,15 @@ const run = (files, options = {}) => {
 
   data.readmeParts = useReadme ? parseReadme(data.readme) : [];
 
-  pug.renderFile(`${dockyPath}/template/template.pug`, data, (renderErr, html) => {
-    if (renderErr) throw renderErr;
+  pug.renderFile(
+    `${dockyPath}/template/template.pug`,
+    data,
+    (renderErr, html) => {
+      if (renderErr) throw renderErr;
 
-    createDocs(html);
-  });
+      createDocs(html);
+    }
+  );
 };
 
 /**
